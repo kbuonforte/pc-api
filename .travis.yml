@@ -1,11 +1,17 @@
 language: elixir
 elixir:
-  - 1.3.2
+- 1.3.2
 otp_release:
-  - 19
+- 19
 sudo: false
 addons:
-  postgresql: '9.4' # Use postgres 9.4
+  postgresql: '9.4'
 before_script:
-# Create the test database
 - psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: l827dLhM1Hiy6yTxWSJCu7SGai7Dk+qLCYftrn0roOfMOgbJqyY9chXxdeVJ55tgF0GOqeadSKkUxcGGjDswPM2uIHgK0AD7c74QicWgYfHgUWTcB8II6anJrj1T4nttmCpBtAeoRk7s4Uxfi1p833AAovmLm4PSBuQwATKvl5gEjB2Y6cOL87C9MvAUAwUSfEVoZEkQQVPrhZS/mV3UCC2xQpdor0mdxSFjkIuRkZ4LCwiP9owZ7kVBLkJmyU4p+1Nv/oFkW+Nni6Ov/YlXKvRg+GNu1DLv/VFE6BZftgLPU9mPhUTzhqFnXZx1GH3tQmoPK5JRv6GavVPIY6l8qGxRx+4n54W0j5HmJtnoviD0+aTlmeIytOECtJk6XA7t+esj9YHH0k3lqdYHkDKNlD6k49IDuKW/76TgBwIf+v50x+9DxtwE9gCVZVpEu3oF0DiwnAK5qMiKyVNROAXSNA6pDJMMnxQiyN8NeRkE2rOompHPDZecGZXkR2Tnrd8jFJJBuJtHcXIB52yF0xMrWewRO7WaHG7x/QaH+zVXC41o932gKZ/yYLY+p472dgqbTjHMysQV7/HS+vfBJ8Ji1sq5GF2VdWfwZZ8/BZq6jPaLQlBXE/h/f+GLJnsuyteLmA5bHy72ti6uq5XMuirjBYbzcPboN1VhorxuQjl7MCI=
+  app: secret-falls-28670
+  on:
+    repo: kbuonforte/pc-api
